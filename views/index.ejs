@@ -7,16 +7,18 @@
     <title>Mini Message Board</title>
 </head>
 <body>
-    <div class="title">
-        <%= title %>
-    </div>
-    <div class="subtitle">
-        Created with Express.js
+    <div class="title-wrapper">
+        <div class="title">
+            <%= title %>
+        </div>
+        <div class="subtitle">
+            Created with Express.js
+        </div>
     </div>
     <table>
         <thead>
             <tr>
-                <th scope="col">Name</th>
+                <th scope="col">User</th>
                 <th scope="col">Message</th>
                 <th scope="col">Date</th>
             </tr>
@@ -31,6 +33,6 @@
             <% }) %>
         </tbody>
     </table>
-
+    <div class="new-msg-btn">New Message</div>
 </body>
 </html>
