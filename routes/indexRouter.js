@@ -18,4 +18,12 @@ indexRouter.get('/', (req, res) => {
     res.render('index', { title: 'Mini Message Board', messages: messages })
 });
 
+indexRouter.get('/new', (req, res) => {
+    res.render('form');
+});
+
+indexRouter.post('/new', (req,res) => {
+    res.send('form submitted');
+});
+
 module.exports = indexRouter;
