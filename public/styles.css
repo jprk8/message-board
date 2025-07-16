@@ -107,11 +107,17 @@ input, textarea {
 }
 
 .submit-btn,
-.new-msg-btn {
+.new-msg-btn,
+.cancel-btn {
   background-color: white;
   border: none;
   border-radius: 20px;
   padding: 10px 20px;
   cursor: pointer;
   margin-top: 30px;
+}
+
+.form-btn {
+  display: flex;
+  gap: 30px;
 }
