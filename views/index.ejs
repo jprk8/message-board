@@ -12,7 +12,7 @@
             <%= title %>
         </div>
         <div class="subtitle">
-            Created with Express.js
+            Created with Express and EJS
         </div>
     </div>
     <table>
@@ -21,6 +21,7 @@
                 <th scope="col">User</th>
                 <th scope="col">Message</th>
                 <th scope="col">Date</th>
+                <th scope="col">Details</th>
             </tr>
         </thead>
         <tbody>
@@ -29,6 +30,11 @@
                     <th scope="row"><%= message.user %></th>
                     <td><%= message.text %></td>
                     <td><%= message.added.toLocaleString() %></td>
+                    <td>
+                        <a href="/message/<%= message.id %>">
+                            <button>Open</button>
+                        </a>
+                    </td>
                 </tr>
             <% }) %>
         </tbody>

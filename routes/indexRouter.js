@@ -1,13 +1,17 @@
 const { Router } = require('express');
 const indexRouter = Router();
 
+let messageId = 1;
+
 const messages = [
     {
+        id: messageId++,
         text: "Hi there!",
         user: "Amando",
         added: new Date()
     },
     {
+        id: messageId++,
         text: "Hello World!",
         user: "Charles",
         added: new Date()
@@ -23,8 +27,17 @@ indexRouter.get('/new', (req, res) => {
 });
 
 indexRouter.post('/new', (req, res) => {
-    messages.push({ text: req.body.message, user: req.body.user, added: new Date()})
+    messages.push({ id: messageId++, text: req.body.message, user: req.body.user, added: new Date()})
     res.redirect('/')
 });
+
+indexRouter.get('/message/:id', (req, res) => {
+    const message = messages.find(msg => msg.id === parseInt(req.params.id));
+    if (!message) {
+        res.status(404).send('Message not found');
+        return;
+    }
+    res.render('detail', { message: message });
+})
 
 module.exports = indexRouter;
